@@ -1,0 +1,10 @@
+Module: library_emd major_version: 1 minor_version: 1
+sceModuleInfo_type: 6
+module_function: module_start localname: module_start
+module_function: module_stop localname: module_stop
+
+Library: library_emd version: 1
+Library: library_emd nidsuffix: ""
+Library: library_emd attr: auto_export
+Library: library_emd variable: specialNumber
+Library: library_emd function: addNumbers
