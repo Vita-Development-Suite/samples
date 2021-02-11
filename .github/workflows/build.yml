@@ -1,0 +1,49 @@
+#
+#   Copyright (C) 2021 Reiko Asakura. All Rights Reserved.
+#
+#   Vita Development Suite Samples
+#
+
+name: Build
+
+on:
+  push:
+  schedule:
+    - cron: '0 10 * * *'
+
+env:
+  CMAKE_GENERATOR: MinGW Makefiles
+  SCE_ROOT_DIR: ${{ github.workspace }}/ci-base/SCE
+  SCE_PSP2_SDK_DIR: ${{ github.workspace }}/ci-base/sdk
+
+jobs:
+
+  build:
+    name: Build
+    runs-on: windows-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Checkout CI base
+        uses: actions/checkout@v2
+        with:
+          repository: Vita-Development-Suite/ci-base
+          path: ci-base
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+
+      - name: Install dependencies
+        run: |
+          $ProgressPreference = "SilentlyContinue"
+          "psp2-cmake-toolchains","cmake-modules","toolchain","libraries"
+            | ForEach-Object {
+                $base_path = "https://bin.shotatoshounenwachigau.moe/vdsuite"
+                Invoke-WebRequest -Uri "$base_path/vdsuite-$_-latest.zip" -OutFile "$_.zip"
+                Expand-Archive -Path "$_.zip" -DestinationPath ${{ github.workspace }}/ci-base
+              }
+
+      - name: Build
+        run: |
+          cmake .
+          make --jobs="$((Get-CimInstance Win32_ComputerSystem).NumberOfLogicalProcessors)"
