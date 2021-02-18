@@ -27,3 +27,6 @@ add_subdirectory(prx-emd)
 add_subdirectory(right-plugin)
 # VDSS00005, VDSS00006
 add_subdirectory(bgapp)
+
+# VDSS10001
+add_subdirectory(shacccg)

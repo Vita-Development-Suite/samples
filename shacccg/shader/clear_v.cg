@@ -1,0 +1,10 @@
+/*
+	Vita Development Suite Samples
+*/
+
+float4 main(
+	float2 aPosition
+	) : POSITION
+{
+	return float4(aPosition, 1.f, 1.f);
+}
