@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<paramsfo>
+  <param key="APP_VER">01.00</param>
+  <param key="ATTRIBUTE">4096</param>
+  <param key="ATTRIBUTE2">0</param>
+  <param key="ATTRIBUTE_MINOR">0</param>
+  <param key="CATEGORY">gdd</param>
+  <param key="CONTENT_ID">HB0000-VDSS00006_00-0000000000000000</param>
+  <param key="INSTALL_DIR_ADDCONT">VDSS00005</param>
+  <param key="INSTALL_DIR_SAVEDATA">VDSS00005</param>
+  <param key="PARENTAL_LEVEL">1</param>
+  <param key="SAVEDATA_MAX_SIZE">1048576</param>
+  <param key="STITLE">Bg App Sample</param>
+  <param key="TITLE">Background Application Sample</param>
+  <param key="TITLE_ID">VDSS00006</param>
+  <param key="VERSION">01.00</param>
+</paramsfo>
