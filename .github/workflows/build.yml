@@ -15,6 +15,7 @@ env:
   CMAKE_GENERATOR: MinGW Makefiles
   SCE_ROOT_DIR: ${{ github.workspace }}/ci-base/SCE
   SCE_PSP2_SDK_DIR: ${{ github.workspace }}/ci-base/sdk
+  SCE_GIMCONV: ${{ github.workspace }}/ci-base/GimConv/GimConv.exe
 
 jobs:
 
@@ -45,5 +46,5 @@ jobs:
 
       - name: Build
         run: |
-          cmake .
+          cmake . -D SCE_GIMCONV="${{ env.SCE_GIMCONV }}"
           make --jobs="$((Get-CimInstance Win32_ComputerSystem).NumberOfLogicalProcessors)"

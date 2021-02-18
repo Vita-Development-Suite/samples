@@ -23,3 +23,5 @@ add_subdirectory(hello-world)
 add_subdirectory(prx-declspec)
 # VDSS00003
 add_subdirectory(prx-emd)
+# VDSS00004
+add_subdirectory(right-plugin)
