@@ -12,7 +12,6 @@ on:
     - cron: '0 10 * * *'
 
 env:
-  CMAKE_GENERATOR: MinGW Makefiles
   SCE_ROOT_DIR: ${{ github.workspace }}/ci-base/SCE
   SCE_PSP2_SDK_DIR: ${{ github.workspace }}/ci-base/sdk
   SCE_GIMCONV: ${{ github.workspace }}/ci-base/GimConv/GimConv.exe
@@ -44,7 +43,24 @@ jobs:
                 Expand-Archive -Path "$_.zip" -DestinationPath ${{ github.workspace }}/ci-base
               }
 
-      - name: Build
+      - name: Build (Make)
+        env:
+          CMAKE_GENERATOR: MinGW Makefiles
         run: |
           cmake . -D SCE_GIMCONV="${{ env.SCE_GIMCONV }}"
+          if ($LastExitCode -ne 0) { exit $LastExitCode }
           make --jobs="$((Get-CimInstance Win32_ComputerSystem).NumberOfLogicalProcessors)"
+          if ($LastExitCode -ne 0) { exit $LastExitCode }
+          git clean -xdf
+
+      - name: Install Ninja
+        uses: Vita-Development-Suite/gha-setup-ninja@master
+
+      - name: Build (Ninja)
+        env:
+          CMAKE_GENERATOR: Ninja
+        run: |
+          cmake . -D SCE_GIMCONV="${{ env.SCE_GIMCONV }}"
+          if ($LastExitCode -ne 0) { exit $LastExitCode }
+          ninja
+          if ($LastExitCode -ne 0) { exit $LastExitCode }
