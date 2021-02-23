@@ -14,6 +14,6 @@ VDSuiteCreateSfo(hello-world-param.sfo param.yml)
 
 VDSuitePackage(hello-world.vpk
   FILES
-    hello-world eboot.bin
+    $<TARGET_FILE:hello-world> eboot.bin
     hello-world-param.sfo sce_sys/param.sfo
 )

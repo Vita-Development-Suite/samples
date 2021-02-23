@@ -40,7 +40,7 @@ VDSuiteCreateSfo(prx-emd-param.sfo param.yml)
 
 VDSuitePackage(prx-emd.vpk
   FILES
-    prx-emd eboot.bin
-    library-emd prx.suprx
+    $<TARGET_FILE:prx-emd> eboot.bin
+    $<TARGET_FILE:library-emd> prx.suprx
     prx-emd-param.sfo sce_sys/param.sfo
 )

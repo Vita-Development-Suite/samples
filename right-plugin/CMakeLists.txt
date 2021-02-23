@@ -25,7 +25,7 @@ VDSuiteCreateSfo(right-plugin-param.sfo param.yml)
 
 VDSuitePackage(right-plugin.vpk
   FILES
-    right-plugin eboot.bin
+    $<TARGET_FILE:right-plugin> eboot.bin
     right-plugin-param.sfo sce_sys/param.sfo
     right.gim sce_sys/about/right.gim
     right.txt sce_sys/about/right.txt

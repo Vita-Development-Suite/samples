@@ -21,7 +21,7 @@ target_link_libraries(bgapp
   SceSysmodule_stub
 )
 
-VDSuiteSignElf(bgapp.self bgapp
+VDSuiteSignElf(bgapp.self $<TARGET_FILE:bgapp>
   BOOT_PARAM bootparam.yml
 )
 
@@ -39,7 +39,7 @@ target_link_libraries(bgapp-bg
   SceSysmodule_stub
 )
 
-VDSuiteSignElf(bgapp-bg.self bgapp-bg
+VDSuiteSignElf(bgapp-bg.self $<TARGET_FILE:bgapp-bg>
   BOOT_PARAM bootparam-bg.yml
 )
 

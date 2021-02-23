@@ -30,7 +30,7 @@ VDSuiteCreateSfo(shacccg-param.sfo param.sfx)
 
 VDSuitePackage(shacccg.vpk
   FILES
-    shacccg eboot.bin
+    $<TARGET_FILE:shacccg> eboot.bin
     shacccg-param.sfo sce_sys/param.sfo
     ${CMAKE_SYSROOT}/module/libshacccg.suprx module/libshacccg.suprx
     shader shader

@@ -25,7 +25,7 @@ VDSuiteCreateSfo(prx-declspec-param.sfo param.yml)
 
 VDSuitePackage(prx-declspec.vpk
   FILES
-    prx-declspec eboot.bin
-    library-declspec prx.suprx
+    $<TARGET_FILE:prx-declspec> eboot.bin
+    $<TARGET_FILE:library-declspec> prx.suprx
     prx-declspec-param.sfo sce_sys/param.sfo
 )
