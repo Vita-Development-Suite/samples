@@ -30,3 +30,6 @@ add_subdirectory(bgapp)
 
 # VDSS10001
 add_subdirectory(shacccg)
+
+# VDSS20001
+add_subdirectory(ini-file-processor)
