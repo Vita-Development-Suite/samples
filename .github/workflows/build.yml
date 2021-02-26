@@ -47,11 +47,9 @@ jobs:
         env:
           CMAKE_GENERATOR: MinGW Makefiles
         run: |
-          cmake . -D SCE_GIMCONV="${{ env.SCE_GIMCONV }}"
+          cmake . -B "build-${{ env.CMAKE_GENERATOR }}" -D SCE_GIMCONV="${{ env.SCE_GIMCONV }}"
           if ($LastExitCode -ne 0) { exit $LastExitCode }
-          make --jobs="$((Get-CimInstance Win32_ComputerSystem).NumberOfLogicalProcessors)"
-          if ($LastExitCode -ne 0) { exit $LastExitCode }
-          git clean -xdf
+          cmake --build "build-${{ env.CMAKE_GENERATOR }}" --parallel "$((Get-CimInstance Win32_ComputerSystem).NumberOfLogicalProcessors)"
 
       - name: Install Ninja
         uses: Vita-Development-Suite/gha-setup-ninja@master
@@ -60,7 +58,16 @@ jobs:
         env:
           CMAKE_GENERATOR: Ninja
         run: |
-          cmake . -D SCE_GIMCONV="${{ env.SCE_GIMCONV }}"
+          cmake . -B "build-${{ env.CMAKE_GENERATOR }}" -D SCE_GIMCONV="${{ env.SCE_GIMCONV }}"
           if ($LastExitCode -ne 0) { exit $LastExitCode }
-          ninja
+          cmake --build "build-${{ env.CMAKE_GENERATOR }}"
+
+      - name: Build (Ninja Multi-Config)
+        env:
+          CMAKE_GENERATOR: Ninja Multi-Config
+        run: |
+          cmake . -B "build-${{ env.CMAKE_GENERATOR }}" -D SCE_GIMCONV="${{ env.SCE_GIMCONV }}"
           if ($LastExitCode -ne 0) { exit $LastExitCode }
+          cmake --build "build-${{ env.CMAKE_GENERATOR }}" --config Debug
+          if ($LastExitCode -ne 0) { exit $LastExitCode }
+          cmake --build "build-${{ env.CMAKE_GENERATOR }}" --config Release
