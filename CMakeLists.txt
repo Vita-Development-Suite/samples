@@ -33,3 +33,5 @@ add_subdirectory(shacccg)
 
 # VDSS20001
 add_subdirectory(ini-file-processor)
+# VDSS20002, VDSS20003
+add_subdirectory(incoming-dialog)
