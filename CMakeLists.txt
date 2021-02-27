@@ -25,8 +25,6 @@ add_subdirectory(prx-declspec)
 add_subdirectory(prx-emd)
 # VDSS00004
 add_subdirectory(right-plugin)
-# VDSS00005, VDSS00006
-add_subdirectory(bgapp)
 
 # VDSS10001
 add_subdirectory(shacccg)
@@ -35,3 +33,5 @@ add_subdirectory(shacccg)
 add_subdirectory(ini-file-processor)
 # VDSS20002, VDSS20003
 add_subdirectory(incoming-dialog)
+# VDSS20004, VDSS20005
+add_subdirectory(bgapp)
