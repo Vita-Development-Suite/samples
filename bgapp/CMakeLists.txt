@@ -32,7 +32,6 @@ add_executable(bgapp-bg
 )
 
 target_link_libraries(bgapp-bg
-  SceAppMgr_stub
   SceNotificationUtil_stub
   SceNotificationUtilBgApp_stub
   SceNotificationUtilProgress_stub

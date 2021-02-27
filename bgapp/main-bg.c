@@ -5,7 +5,6 @@
 #include <string.h>
 #include <wchar.h>
 
-#include <appmgr.h>
 #include <kernel/threadmgr.h>
 #include <libsysmodule.h>
 #include <notification_util.h>
@@ -78,5 +77,5 @@ int main(void) {
 		sceNotificationUtilProgressFinish(&finishParam);
 	}
 
-	return sceAppMgrDestroyAppByAppId(-2);
+	return 0;
 }

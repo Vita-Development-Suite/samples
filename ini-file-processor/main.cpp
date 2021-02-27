@@ -5,7 +5,6 @@
 #include <stdio.h>
 
 #include <ini_file_processor.h>
-#include <kernel/processmgr.h>
 #include <libsysmodule.h>
 #include <paf.h>
 
@@ -54,5 +53,5 @@ int main(void) {
 		}
 	}
 
-	return sceKernelExitProcess(0);
+	return 0;
 }
