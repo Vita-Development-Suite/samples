@@ -18,7 +18,6 @@ add_executable(ini-file-processor
 
 target_link_libraries(ini-file-processor
   SceIniFileProcessor_stub
-  ScePafStdc_stub
   SceSysmodule_stub
 )
 

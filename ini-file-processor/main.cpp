@@ -3,6 +3,7 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include <ini_file_processor.h>
 #include <libsysmodule.h>
@@ -33,7 +34,7 @@ int main(void) {
 	sceSysmoduleLoadModuleInternalWithArg(SCE_SYSMODULE_INTERNAL_PAF, sizeof(pafInit), &pafInit, &loadOpt);
 	sceSysmoduleLoadModuleInternal(SCE_SYSMODULE_INTERNAL_INI_FILE_PROCESSOR);
 
-	auto allocator = MemAllocator{sce_paf_malloc, sce_paf_free};
+	auto allocator = MemAllocator{malloc, free};
 	auto iniInit = InitParameter();
 	iniInit.allocator = &allocator;
 
