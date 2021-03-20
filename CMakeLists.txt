@@ -34,4 +34,4 @@ add_subdirectory(ini-file-processor)
 # VDSS20002, VDSS20003
 add_subdirectory(incoming-dialog)
 # VDSS20004, VDSS20005
-add_subdirectory(bgapp)
+add_subdirectory(notification-util)

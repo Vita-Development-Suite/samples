@@ -12,8 +12,8 @@
   <param key="PSP2_DISP_VER">03.600</param>
   <param key="PSP2_SYSTEM_VER">56623104</param>
   <param key="SAVEDATA_MAX_SIZE">1048576</param>
-  <param key="STITLE">Bg App Sample</param>
-  <param key="TITLE">Background Application Sample</param>
+  <param key="STITLE">Notification Util Sample</param>
+  <param key="TITLE">Notification Util Sample</param>
   <param key="TITLE_ID">VDSS20004</param>
   <param key="VERSION">01.00</param>
 </paramsfo>
